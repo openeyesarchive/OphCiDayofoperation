@@ -18,12 +18,8 @@
  ?>
 <div class="<?php echo $element->elementType->class_name?>">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-
-	
-		<?php echo $form->dropDownList($element, 'medical_history_changed_id', CHtml::listData(EtOphcidayofoperationDetailsMedicalHistoryChanged::model()->findAll(),'id','name'),array('empty'=>'- Please select -')); ?>
-			<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
-	
-		<?php echo $form->checkBox($element, 'preop_checklist'); ?>
-	
-		<?php echo $form->checkBox($element, 'cjd_checklist'); ?>
-	</div>
+	<?php echo $form->dropDownList($element, 'medical_history_changed_id', CHtml::listData(EtOphcidayofoperationDetailsMedicalHistoryChanged::model()->findAll(),'id','name'),array('empty'=>'- Please select -','layout'=>'vertical'))?>
+	<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
+	<?php echo $form->checkBox($element, 'preop_checklist'); ?>
+	<?php echo $form->checkBox($element, 'cjd_checklist'); ?>
+</div>
