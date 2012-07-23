@@ -20,6 +20,12 @@
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 	<?php echo $form->dropDownList($element, 'medical_history_changed_id', CHtml::listData(EtOphcidayofoperationDetailsMedicalHistoryChanged::model()->findAll(),'id','name'),array('empty'=>'- Please select -','layout'=>'vertical'))?>
 	<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
-	<?php echo $form->checkBox($element, 'preop_checklist'); ?>
-	<?php echo $form->checkBox($element, 'cjd_checklist'); ?>
+	<div class="eventDetail" style="padding-left: 13.9em;">
+		<?php echo $form->checkBox($element, 'preop_checklist', array('nowrapper'=>true))?>
+		<?php echo CHtml::encode($element->getAttributeLabel('preop_checklist'))?>
+	</div>
+	<div class="eventDetail" style="padding-left: 13.9em;">
+		<?php echo $form->checkBox($element, 'cjd_checklist', array('nowrapper'=>true))?>
+		<?php echo CHtml::encode($element->getAttributeLabel('cjd_checklist'))?>
+	</div>
 </div>
