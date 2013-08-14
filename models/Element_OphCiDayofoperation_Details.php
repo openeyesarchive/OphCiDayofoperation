@@ -24,6 +24,7 @@
  * @property integer $event_id
  * @property integer $medical_history_changed_id
  * @property string $inr_level
+ * @property string $change
  *
  * The followings are the available model relations:
  */
@@ -57,11 +58,11 @@ class Element_OphCiDayofoperation_Details extends BaseEventTypeElement
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, medical_history_changed_id, inr_level, preop_checklist, cjd_checklist, ', 'safe'),
-			array('medical_history_changed_id, inr_level, cjd_checklist, ', 'required'),
+			array('event_id, medical_history_changed, inr_level, preop_checklist, cjd_checklist,change', 'safe'),
+			array('medical_history_changed, inr_level, cjd_checklist, ', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, medical_history_changed_id, inr_level, preop_checklist, cjd_checklist, ', 'safe', 'on' => 'search'),
+			array('id, event_id, medical_history_changed, inr_level, preop_checklist, cjd_checklist, ', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -90,10 +91,10 @@ class Element_OphCiDayofoperation_Details extends BaseEventTypeElement
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-'medical_history_changed_id' => 'Change in medical history since preoperative assessment',
+'medical_history_changed' => 'Change in medical history since preoperative assessment',
 'inr_level' => 'INR level',
-'preop_checklist' => 'Preoperative checklist completed and filed in the notes',
-'cjd_checklist' => 'CJD checklist completed and filed in the notes',
+'preop_checklist' => 'Preoperative checklist completed',
+'cjd_checklist' => 'CJD checklist completed',
 		);
 	}
 

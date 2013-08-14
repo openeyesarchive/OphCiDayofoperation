@@ -60,6 +60,16 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+    $('#Element_OphCiDayofoperation_Details_medical_history_changed_1').unbind('click').click(function() {
+        $('.changelabel').css({'display':'inline-block'});
+        $('#Element_OphCiDayofoperation_Details_change').focus();
+    });
+
+    $('#Element_OphCiDayofoperation_Details_medical_history_changed_0').unbind('click').click(function() {
+        $('#Element_OphCiDayofoperation_Details_change').val('');
+        $('.changelabel').hide();
+    });
 });
 
 function ucfirst(str) { str += ''; var f = str.charAt(0).toUpperCase(); return f + str.substr(1); }
