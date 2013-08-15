@@ -1,6 +1,6 @@
 <?php
 
-class m130812_122102_change_field_to_boolean extends CDbMigration
+class m130812_122102_change_field_to_bolean extends CDbMigration
 {
 	public function up()
 	{
