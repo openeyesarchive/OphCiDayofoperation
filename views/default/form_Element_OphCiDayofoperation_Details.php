@@ -22,7 +22,7 @@
 		 data-element-type-name="<?php echo $element->elementType->name ?>"
 		 data-element-display-order="<?php echo $element->elementType->display_order ?>">
 	<element-header>
-		<h3><?php  echo $element->elementType->name; ?></h3>
+		<h3 class="element-title"><?php  echo $element->elementType->name; ?></h3>
 	</element-header>
 
 	<div class="element-fields">
@@ -34,7 +34,7 @@
 				<?php echo $form->radioBoolean($element, 'medical_history_changed', array('nowrapper'=>1))?>
 				<?php $showchange = $_POST ? $_POST["Element_OphCiDayofoperation_Details"]["medical_history_changed"] : $element->medical_history_changed;?>
 				<div class="changelabel"<?php if(!$showchange) echo ' style="display:none"'; else echo ' style="display:inline-block"'?>>
-					<?php echo CHtml::encode($element->getAttributeLabel('change'))?>
+				<label>	<?php echo CHtml::encode($element->getAttributeLabel('change'))?></label>
 					<?php echo $form->textField($element, 'change',array('nowrapper'=>1))?>
 				</div>
 			</div>
@@ -42,23 +42,21 @@
 
 		<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
 
-		<div class="element-fields">
-			<div class="row">
-				<div class="large-4 column">
-				</div>
-				<div class="large-8 column">
-					<?php echo $form->checkBox($element, 'preop_checklist', array('nowrapper'=>true))?>
-				</div>
+		<div class="row">
+			<div class="large-4 column">
+			</div>
+			<div class="large-8 column">
+				<?php echo $form->checkBox($element, 'preop_checklist', array('nowrapper'=>true))?>
 			</div>
 		</div>
-		<div class="element-fields">
-			<div class="row">
-				<div class="large-4 column">
-				</div>
-				<div class="large-8 column">
-					<?php echo $form->checkBox($element, 'cjd_checklist', array('nowrapper'=>true))?>
-				</div>
+
+		<div class="row">
+			<div class="large-4 column">
+			</div>
+			<div class="large-8 column">
+				<?php echo $form->checkBox($element, 'cjd_checklist', array('nowrapper'=>true))?>
 			</div>
 		</div>
+
 	</div>
 </section>
