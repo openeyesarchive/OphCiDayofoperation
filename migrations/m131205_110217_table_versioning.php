@@ -78,9 +78,7 @@ CREATE TABLE `et_ophcidayofoperation_details_medical_history_changed_version` (
 	public function down()
 	{
 		$this->dropColumn('et_ophcidayofoperation_details','deleted');
-		$this->dropColumn('et_ophcidayofoperation_details_version','deleted');
 		$this->dropColumn('et_ophcidayofoperation_details_medical_history_changed','deleted');
-		$this->dropColumn('et_ophcidayofoperation_details_medical_history_changed_version','deleted');
 
 		$this->dropTable('et_ophcidayofoperation_details_version');
 		$this->dropTable('et_ophcidayofoperation_details_medical_history_changed_version');
