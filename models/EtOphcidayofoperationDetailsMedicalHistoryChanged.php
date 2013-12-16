@@ -26,7 +26,7 @@
  * The followings are the available model relations:
  */
 
-class EtOphcidayofoperationDetailsMedicalHistoryChanged extends BaseActiveRecord
+class EtOphcidayofoperationDetailsMedicalHistoryChanged extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
