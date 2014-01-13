@@ -25,9 +25,9 @@ class m120615_145440_event_type_OphCiDayofoperation extends CDbMigration
 				// element lookup table et_ophcidayofoperation_details_medical_history_changed
 		$this->createTable('et_ophcidayofoperation_details_medical_history_changed', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(128) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(128) NOT NULL',
 				'display_order' => 'int(10) unsigned NOT NULL DEFAULT 1',
-								'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
+				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'created_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -36,10 +36,10 @@ class m120615_145440_event_type_OphCiDayofoperation extends CDbMigration
 				'KEY `et_ophcidayofoperation_details_medical_history_changed_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophcidayofoperation_details_medical_history_changed_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcidayofoperation_details_medical_history_changed_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
-						$this->insert('et_ophcidayofoperation_details_medical_history_changed',array('name'=>'Yes','display_order'=>1));
-						$this->insert('et_ophcidayofoperation_details_medical_history_changed',array('name'=>'No','display_order'=>2));
+		$this->insert('et_ophcidayofoperation_details_medical_history_changed',array('name'=>'Yes','display_order'=>1));
+		$this->insert('et_ophcidayofoperation_details_medical_history_changed',array('name'=>'No','display_order'=>2));
 							
 				
 		// create the table for this element type: et_modulename_elementtypename
@@ -47,10 +47,10 @@ class m120615_145440_event_type_OphCiDayofoperation extends CDbMigration
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
 				'event_id' => 'int(10) unsigned NOT NULL',
 				'medical_history_changed_id' => 'int(10) unsigned NOT NULL', // Change in medical history since preoperative assessment
-			'inr_level' => 'varchar(255) DEFAULT \'\'', // INR level
-			'preop_checklist' => 'tinyint(1) unsigned NOT NULL', // Preoperative checklist completed and filed in the notes
-			'cjd_checklist' => 'tinyint(1) unsigned NOT NULL', // CJD checklist completed and filed in the notes
-							'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
+				'inr_level' => 'varchar(255) DEFAULT \'\'', // INR level
+				'preop_checklist' => 'tinyint(1) unsigned NOT NULL', // Preoperative checklist completed and filed in the notes
+				'cjd_checklist' => 'tinyint(1) unsigned NOT NULL', // CJD checklist completed and filed in the notes
+				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
 				'created_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'created_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -58,14 +58,13 @@ class m120615_145440_event_type_OphCiDayofoperation extends CDbMigration
 				'KEY `et_ophcidayofoperation_details_lmui_fk` (`last_modified_user_id`)',
 				'KEY `et_ophcidayofoperation_details_cui_fk` (`created_user_id`)',
 				'KEY `et_ophcidayofoperation_details_ev_fk` (`event_id`)',
-								'KEY `et_ophcidayofoperation_details_medical_history_changed_fk` (`medical_history_changed_id`)',
-								'CONSTRAINT `et_ophcidayofoperation_details_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
+				'KEY `et_ophcidayofoperation_details_medical_history_changed_fk` (`medical_history_changed_id`)',
+				'CONSTRAINT `et_ophcidayofoperation_details_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcidayofoperation_details_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophcidayofoperation_details_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)',
-								'CONSTRAINT `et_ophcidayofoperation_details_medical_history_changed_fk` FOREIGN KEY (`medical_history_changed_id`) REFERENCES `et_ophcidayofoperation_details_medical_history_changed` (`id`)',
-							), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
-
-						}
+				'CONSTRAINT `et_ophcidayofoperation_details_medical_history_changed_fk` FOREIGN KEY (`medical_history_changed_id`) REFERENCES `et_ophcidayofoperation_details_medical_history_changed` (`id`)',
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
+	}
 
 	public function down() {
 		// --- drop any element related tables ---
