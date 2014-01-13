@@ -9,7 +9,7 @@ CREATE TABLE `et_ophcidayofoperation_details_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`event_id` int(10) unsigned NOT NULL,
 	`medical_history_changed_id` int(10) unsigned NOT NULL,
-	`inr_level` varchar(255) COLLATE utf8_bin DEFAULT '',
+	`inr_level` varchar(255) DEFAULT '',
 	`preop_checklist` tinyint(1) unsigned NOT NULL,
 	`cjd_checklist` tinyint(1) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -25,7 +25,7 @@ CREATE TABLE `et_ophcidayofoperation_details_version` (
 	CONSTRAINT `acv_et_ophcidayofoperation_details_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcidayofoperation_details_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_et_ophcidayofoperation_details_medical_history_changed_fk` FOREIGN KEY (`medical_history_changed_id`) REFERENCES `et_ophcidayofoperation_details_medical_history_changed` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcidayofoperation_details_version','id','int(10) unsigned NOT NULL');
@@ -43,7 +43,7 @@ CREATE TABLE `et_ophcidayofoperation_details_version` (
 		$this->execute("
 CREATE TABLE `et_ophcidayofoperation_details_medical_history_changed_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -54,7 +54,7 @@ CREATE TABLE `et_ophcidayofoperation_details_medical_history_changed_version` (
 	KEY `acv_phcidayofoperation_details_medical_history_changed_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_phcidayofoperation_details_medical_history_changed_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_phcidayofoperation_details_medical_history_changed_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophcidayofoperation_details_medical_history_changed_version','id','int(10) unsigned NOT NULL');
