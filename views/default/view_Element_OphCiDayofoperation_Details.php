@@ -18,9 +18,9 @@
  */
 ?>
 <section class="element element-data">
-	<h3 class="data-title"><?php echo $element->elementType->name ?></h3>
+	
 
-	<div class="element-data">
+	<div class="element-data element">
 		<div class="row">
 			<div class="large-12 column data-value highlight">
 				<div class="row data-row">

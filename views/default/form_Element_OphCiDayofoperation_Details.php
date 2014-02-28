@@ -16,47 +16,33 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-<section class="element <?php echo $element->elementType->class_name?>"
-		 data-element-type-id="<?php echo $element->elementType->id ?>"
-		 data-element-type-class="<?php echo $element->elementType->class_name ?>"
-		 data-element-type-name="<?php echo $element->elementType->name ?>"
-		 data-element-display-order="<?php echo $element->elementType->display_order ?>">
-	<element-header>
-		<h3 class="element-title"><?php  echo $element->elementType->name; ?></h3>
-	</element-header>
-
-	<div class="element-fields">
-		<div class="row">
-			<div class="large-4 column">
-				<label><?php echo CHtml::encode($element->getAttributeLabel('medical_history_changed'))?>:</label>
-			</div>
-			<div class="large-8 column">
-				<?php echo $form->radioBoolean($element, 'medical_history_changed', array('nowrapper'=>1))?>
-				<?php $showchange = $_POST ? $_POST["Element_OphCiDayofoperation_Details"]["medical_history_changed"] : $element->medical_history_changed;?>
-				<div class="changelabel"<?php if(!$showchange) echo ' style="display:none"'; else echo ' style="display:inline-block"'?>>
+<div class="element-fields">
+	<div class="row">
+		<div class="large-4 column">
+			<label><?php echo CHtml::encode($element->getAttributeLabel('medical_history_changed'))?>:</label>
+		</div>
+		<div class="large-8 column">
+			<?php echo $form->radioBoolean($element, 'medical_history_changed', array('nowrapper'=>1))?>
+			<?php $showchange = $_POST ? $_POST["Element_OphCiDayofoperation_Details"]["medical_history_changed"] : $element->medical_history_changed;?>
+			<div class="changelabel"<?php if(!$showchange) echo ' style="display:none"'; else echo ' style="display:inline-block"'?>>
 				<label>	<?php echo CHtml::encode($element->getAttributeLabel('change'))?></label>
-					<?php echo $form->textField($element, 'change',array('nowrapper'=>1))?>
-				</div>
+				<?php echo $form->textField($element, 'change',array('nowrapper'=>1))?>
 			</div>
 		</div>
-
-		<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
-
-		<div class="row">
-			<div class="large-4 column">
-			</div>
-			<div class="large-8 column">
-				<?php echo $form->checkBox($element, 'preop_checklist', array('nowrapper'=>true))?>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="large-4 column">
-			</div>
-			<div class="large-8 column">
-				<?php echo $form->checkBox($element, 'cjd_checklist', array('nowrapper'=>true))?>
-			</div>
-		</div>
-
 	</div>
-</section>
+	<?php echo $form->textField($element, 'inr_level', array('size' => '10')); ?>
+	<div class="row">
+		<div class="large-4 column">
+		</div>
+		<div class="large-8 column">
+			<?php echo $form->checkBox($element, 'preop_checklist', array('nowrapper'=>true))?>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-4 column">
+		</div>
+		<div class="large-8 column">
+			<?php echo $form->checkBox($element, 'cjd_checklist', array('nowrapper'=>true))?>
+		</div>
+	</div>
+</div>
