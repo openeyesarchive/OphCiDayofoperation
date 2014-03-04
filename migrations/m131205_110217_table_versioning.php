@@ -24,7 +24,6 @@ CREATE TABLE `et_ophcidayofoperation_details_version` (
 	CONSTRAINT `acv_et_ophcidayofoperation_details_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcidayofoperation_details_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophcidayofoperation_details_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
-	CONSTRAINT `acv_et_ophcidayofoperation_details_medical_history_changed_fk` FOREIGN KEY (`medical_history_changed_id`) REFERENCES `et_ophcidayofoperation_details_medical_history_changed` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
